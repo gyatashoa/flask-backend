@@ -193,3 +193,5 @@ flask-backend/.vscode/launch.json
 # IPython
 profile_default/
 ipython_config.py
+
+.vscode/
