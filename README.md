@@ -6,4 +6,5 @@
 - Set up a virtual environment
 - Activate the virtual environment
 - Install all modules using the requirements.txt
+- Set up your .env file
 - Run flask run in your terminal
