@@ -10,18 +10,18 @@ predictions = Blueprint("predictions", __name__,
                         url_prefix=BASE_PREDICTION_URL)
 
 
-@predictions.get('predict')
-@jwt_required()
+@predictions.post('predict')
+# @jwt_required()
 def predict():
-    user_id = get_jwt_identity()
+    # user_id = get_jwt_identity()
     body: dict = request.json
     symptoms: list[str] = body.get('symptoms', [])
     if len(symptoms) == 0:
         return jsonify({'error': {'message': 'Invalid symptoms format'}}), HTTP_400_BAD_REQUEST
     predicted_value = make_prediction(symptoms)
-    prediction = Prediction(user_id=user_id, disease_name=predicted_value)
-    db.session.add(prediction)
-    db.session.commit()
+    # prediction = Prediction(user_id=user_id, disease_name=predicted_value)
+    # db.session.add(prediction)
+    # db.session.commit()
     return jsonify({'disease': predicted_value}), HTTP_201_CREATED
 
 

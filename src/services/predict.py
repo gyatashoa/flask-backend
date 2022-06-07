@@ -2,7 +2,7 @@ import os
 import pickle
 import json
 
-__symptom_headers: list[str] = None
+__symptom_headers = None
 __model = None
 
 __path_to_artifacts = os.path.join(os.path.dirname(
@@ -21,7 +21,7 @@ def load_model():
         __model = pickle.load(m)
 
 
-def make_prediction(symptoms: list[str]):
+def make_prediction(symptoms):
     encoded_values: list[int] = []
     if __symptom_headers is None:
         load_symptoms()
