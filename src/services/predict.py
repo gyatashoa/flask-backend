@@ -1,12 +1,20 @@
 import os
 import pickle
 import json
+# import pandas as pd
 
 __symptom_headers = None
 __model = None
+# __drug_db = None
 
 __path_to_artifacts = os.path.join(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))), 'artifacts')
+
+
+# def load_drug():
+#     global __drug_db
+#     __drug_db = pd.read_csv(os.path.join(
+#         __path_to_artifacts, 'diseases_drugs.csv'))
 
 
 def load_symptoms():
@@ -36,7 +44,8 @@ def make_prediction(symptoms):
         except ValueError as err:
             encoded_values.append(0)
     value = __model.predict([encoded_values])
-    return value[0]
+    prob = (__model.predict_proba([encoded_values])).max()
+    return value[0], prob
 
 
 def get_symptoms():
