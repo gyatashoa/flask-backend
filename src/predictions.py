@@ -18,11 +18,11 @@ def predict():
     symptoms: list[str] = body.get('symptoms', [])
     if len(symptoms) == 0:
         return jsonify({'error': {'message': 'Invalid symptoms format'}}), HTTP_400_BAD_REQUEST
-    predicted_value, prob = make_prediction(symptoms)
+    predicted_value, prob, drugs = make_prediction(symptoms)
     # prediction = Prediction(user_id=user_id, disease_name=predicted_value)
     # db.session.add(prediction)
     # db.session.commit()
-    return jsonify({'disease': predicted_value, 'probability': prob}), HTTP_201_CREATED
+    return jsonify({'disease': predicted_value, 'probability': prob, 'prescriptions': drugs}), HTTP_201_CREATED
 
 
 @predictions.get('symptoms')
