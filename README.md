@@ -1,9 +1,11 @@
-
 # Doctr Machine Learning Model Api
 
 This repository consist of a flask backend and Machine Learning model ( it uses the Gaussian Naive Bayes Algorithm ) built with
 scikit learn. This is used in predicting in predicting a disease,its probability and required prescription
 
+Project have deployed on heroku with the base url below
+
+- [https://prediction-disease-test.herokuapp.com/](https://prediction-disease-test.herokuapp.com/)
 
 ## Run Server Locally
 
@@ -18,6 +20,7 @@ Go to the project directory
 ```bash
   cd flask-backend-master
 ```
+
 create .env file
 
 ```bash
@@ -26,7 +29,7 @@ create .env file
 
 set up environmental variables in .env file
 
-``` 
+```
     SECRET_KEY=12345678
     POSTGRES_DB_URI=sqlite:///db.sqlite3
 ```
@@ -56,7 +59,6 @@ Start the server
   flask run
 ```
 
-
 ## API Reference
 
 #### Get all symptoms
@@ -65,8 +67,8 @@ Start the server
   GET /api/v1/predictions/symptoms
 ```
 
-| Result | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+| Result   | Type    | Description           |
+| :------- | :------ | :-------------------- |
 | symptoms | `array` | array of all symptoms |
 
 #### Make a predictions
@@ -75,34 +77,28 @@ Start the server
   POST /api/v1/predictions/predict
 ```
 
-| Request Body | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `symptoms as key`      | `JSON` | The symptoms you would like to predict |
+| Request Body      | Type   | Description                            |
+| :---------------- | :----- | :------------------------------------- |
+| `symptoms as key` | `JSON` | The symptoms you would like to predict |
 
-
-| Results | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `Disease`      | `String` | Predicted disease |
-| `probability` | `Float`| Models probability of predicted disease|
-|`prescriptions`|`Array` | All prescriptions|
-
-
-
+| Results         | Type     | Description                             |
+| :-------------- | :------- | :-------------------------------------- |
+| `Disease`       | `String` | Predicted disease                       |
+| `probability`   | `Float`  | Models probability of predicted disease |
+| `prescriptions` | `Array`  | All prescriptions                       |
 
 ## Documentation
 
 [Documentation](https://linktodocumentation)
 
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
 
 ## Authors
 
 - [@Asamoah Yeboah Felix](https://www.github.com/gyatashoa)
 
 ## 🚀 About Me
-My name Asamoah Yeboah Felix, A final year Computer Science student at KNUST
 
+My name Asamoah Yeboah Felix, A final year Computer Science student at KNUST
